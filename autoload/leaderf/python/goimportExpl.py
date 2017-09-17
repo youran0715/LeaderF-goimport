@@ -56,11 +56,15 @@ class GoimportExplManager(Manager):
     def _acceptSelection(self, *args, **kwargs):
         if len(args) == 0:
             return
+
         line = args[0]
+        if line == "":
+            return
 
         if self.flag_import_as == 1:
             local_name = lfEval("input('Enter local name: ')")
-            lfCmd("GoImportAs " + local_name + " " + line)
+            if local_name != '':
+                lfCmd("GoImportAs " + local_name + " " + line)
         else:
             lfCmd("GoImport " + line)
 
@@ -80,7 +84,7 @@ class GoimportExplManager(Manager):
         Args:
             mode: 0, 1, 2, return 1
         """
-        return 1
+        return 0
 
     def _createHelp(self):
         help = []
