@@ -26,3 +26,7 @@ endfunction
 function! leaderf#Goimport#startExpl(win_pos, ...)
     call leaderf#LfPy("goimportExplManager.startExplorer('".a:win_pos."')")
 endfunction
+
+function! leaderf#Goimport#startExplPattern(win_pos, pattern)
+    call leaderf#LfPy("goimportExplManager.startExplorer('".a:win_pos."', pattern='".a:pattern."')") 
+endfunction
